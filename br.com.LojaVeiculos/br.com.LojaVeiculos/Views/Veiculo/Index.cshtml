@@ -1,0 +1,70 @@
+﻿@model IEnumerable<br.com.LojaVeiculos.Models.TB_VEICULO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_CLIENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOM_MARCA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DES_MODELO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUM_ANO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOM_COR)
+        </th>
+         <th>
+            @Html.DisplayName("Endereço")
+        </th>
+        <th>
+            @Html.DisplayName("Estado")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_CLIENTE.NM_CLIENTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOM_MARCA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DES_MODELO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUM_ANO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOM_COR)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.TB_CLIENTE.TB_ENDERECO.FirstOrDefault().NM_LOGRADOURO)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.TB_CLIENTE.TB_ENDERECO.FirstOrDefault().SG_UF)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

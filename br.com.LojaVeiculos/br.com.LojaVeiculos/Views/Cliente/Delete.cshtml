@@ -1,0 +1,57 @@
+﻿@model br.com.LojaVeiculos.Models.TB_CLIENTE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+@using (Html.BeginForm("Delete", "Cliente", FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>TB_CLIENTE</legend>
+
+        @Html.HiddenFor(model => model.ID_cliente)
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.NM_CLIENTE)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NM_CLIENTE)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DT_NASCIMENTO)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DT_NASCIMENTO)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.FL_ATIVO)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FL_ATIVO)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.NM_TELEFONE)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NM_TELEFONE)
+        </div>
+
+         <p>
+            <input type="submit" value="Delete" />
+        </p>
+
+    </fieldset>
+
+}
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID_cliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
